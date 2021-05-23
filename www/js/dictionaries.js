@@ -6,13 +6,25 @@ const dictionaries = [
       fr: 'Accords',
       en: 'Chords'
     },
-    containerDiv: 'chords-dict'
+    containerDiv: 'chords-dict',
+    tonicText: {
+      fr: 'Fondamentale',
+    },
+    typeText: {
+      fr: 'Type d\'accord'
+    }
   },
   {
     name: {
       fr: 'Gammes',
       en: 'Scales'
     },
-    containerDiv: 'scales-dict'
+    containerDiv: 'scales-dict',
+    tonicText: {
+      fr: 'Tonique',
+    },
+    typeText: {
+      fr: 'Type de gamme'
+    }
   },
 ];
