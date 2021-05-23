@@ -12,7 +12,7 @@ const dictionaries = [
     },
     typeText: {
       fr: 'Type d\'accord'
-    }
+    },
   },
   {
     name: {
@@ -25,6 +25,6 @@ const dictionaries = [
     },
     typeText: {
       fr: 'Type de gamme'
-    }
+    },
   },
 ];
