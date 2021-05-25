@@ -18,7 +18,17 @@ class Dictionary {
           '<label>' + this.data.typeText[this.lang] + '</label>' +
         '</div>';
 
-    this.tonicSelect = this.containerDiv.querySelector('.tonic-select');
+    const tonicSelect = this.containerDiv.querySelector('.tonic-select');
+
+    // On ajoute les notes au select
+    notes.forEach(function(note) {
+      if(note.isRoot) {
+        let option = document.createElement('option');
+        option.innerHTML = note.name[lang];
+        option.value = note.id;
+        tonicSelect.appendChild(option);
+      }
+    });
 
     this.initSelects();
   }
