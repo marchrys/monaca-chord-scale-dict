@@ -13,6 +13,7 @@ const dictionaries = [
     typeText: {
       fr: 'Type d\'accord'
     },
+    types: chordTypes
   },
   {
     name: {
@@ -26,5 +27,6 @@ const dictionaries = [
     typeText: {
       fr: 'Type de gamme'
     },
+    types: scaleTypes
   },
 ];
