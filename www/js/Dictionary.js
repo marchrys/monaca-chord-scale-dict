@@ -7,6 +7,10 @@ class Dictionary {
     this.selectedRoot = notes[0];
     this.selectedType = this.data.types[0];
     this.elementNotes = [];
+
+    // On définit les clés pour le local storage
+    this.rootKey = this.data.containerDiv + '-root';
+    this.typeKey = this.data.containerDiv + '-type';
     
     // On ajoute le select de choix de fondamentale ou tonique
     this.containerDiv.innerHTML += 
@@ -45,6 +49,11 @@ class Dictionary {
         this.typeSelect.appendChild(option);
     }.bind(this));
 
+    this.loadData();
+
+    this.tonicSelect.value = this.selectedRoot.id;
+    this.typeSelect.value = this.selectedType.id;
+
     this.initSelects();
 
     // On ajouter des event listeners pour le change sur les deux selects
@@ -59,11 +68,13 @@ class Dictionary {
 
   handleRootChange() {
     this.selectedRoot = notes.find(note => note.id == this.tonicSelect.value);
+    this.saveData();
     this.createElementNotes();
   }
 
   handleTypeChange() {
     this.selectedType = this.data.types.find(type => type.id == this.typeSelect.value);
+    this.saveData();
     this.createElementNotes();
   }
 
@@ -75,6 +86,21 @@ class Dictionary {
       const note = notes.find(note => note.id == this.selectedRoot.id + interval);
       console.log(JSON.stringify(note));
     }.bind(this));
+  }
+
+  saveData() {
+    localStorage.setItem(this.rootKey, JSON.stringify(this.selectedRoot));
+    localStorage.setItem(this.typeKey, JSON.stringify(this.selectedType));
+  }
+
+  loadData() {
+    if (localStorage.getItem(this.rootKey) !== null) {
+      this.selectedRoot = JSON.parse(localStorage.getItem(this.rootKey));
+    }
+
+    if (localStorage.getItem(this.typeKey) !== null) {
+      this.selectedType = JSON.parse(localStorage.getItem(this.typeKey));
+    }
   }
 }
 
