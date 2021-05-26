@@ -84,8 +84,20 @@ class Dictionary {
     this.elementNotes.push(this.selectedRoot);
     this.selectedType.intervals.forEach(function(interval) {
       const note = notes.find(note => note.id == this.selectedRoot.id + interval);
-      console.log(JSON.stringify(note));
+      this.elementNotes.push(note);
     }.bind(this));
+
+    let hasErrors = false;
+    this.elementNotes.every(function(note) {
+      if(note == null) {
+        hasErrors = true;
+        return false;
+      } else {
+        return true;
+      }
+    }.bind(this));
+
+    console.log(hasErrors);
   }
 
   saveData() {
