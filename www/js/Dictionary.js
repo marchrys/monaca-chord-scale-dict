@@ -8,6 +8,8 @@ class Dictionary {
     this.selectedType = this.data.types[0];
     this.elementNotes = [];
 
+    this.notesStr = '';
+
     // On définit les clés pour le local storage
     this.rootKey = this.data.containerDiv + '-root';
     this.typeKey = this.data.containerDiv + '-type';
@@ -24,9 +26,14 @@ class Dictionary {
           '<select class="type-select"></select>' +
           '<label>' + this.data.typeText[this.lang] + '</label>' +
         '</div>';
+    
+    // On ajoute la p qui affichera les notes
+    this.containerDiv.innerHTML += 
+      '<p class="notes-text">test</p>';
 
     this.tonicSelect = this.containerDiv.querySelector('.tonic-select');
     this.typeSelect = this.containerDiv.querySelector('.type-select');
+    this.notesDiv = this.containerDiv.querySelector('.notes-text');
 
     // On ajoute les notes au select
     notes.forEach(function(note) {
@@ -86,6 +93,10 @@ class Dictionary {
       const note = notes.find(note => note.id == this.selectedRoot.id + interval);
       this.elementNotes.push(note);
     }.bind(this));
+    if(this.data.containerDiv == 'scales-dict') {
+      const octava = notes.find(note => note.id == this.selectedRoot.id + 31);
+      this.elementNotes.push(octava);
+    }
 
     let hasErrors = false;
     this.elementNotes.every(function(note) {
@@ -97,7 +108,17 @@ class Dictionary {
       }
     }.bind(this));
 
-    console.log(hasErrors);
+    this.notesStr = '';
+    if(hasErrors) {
+      this.notesStr = this.data.errorText[this.lang];
+    } else {
+      this.elementNotes.forEach(function(note) {
+        this.notesStr += note.name[this.lang] + ' ';
+      }.bind(this));
+      this.notesStr = this.notesStr.substring(0, this.notesStr.length-1);
+    }
+    
+    this.notesDiv.innerHTML = this.notesStr;
   }
 
   saveData() {
