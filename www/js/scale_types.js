@@ -79,5 +79,29 @@ const scaleTypes = [
     },
     intervals: [3, 8, 13, 16, 23, 26]
   },
+  {
+    id: 11,
+    name: {
+      en: 'major pentatonic',
+      fr: 'pentatonique majeur'
+    },
+    intervals: [5, 10, 18, 23]
+  },
+  {
+    id: 12,
+    name: {
+      en: 'minor pentatonic',
+      fr: 'pentatonique mineur'
+    },
+    intervals: [8, 13, 18, 26]
+  },
+  {
+    id: 13,
+    name: {
+      en: 'blues pentatonic',
+      fr: 'pentatonique blues'
+    },
+    intervals: [8, 13, 16, 18, 26]
+  },
 ];
 
