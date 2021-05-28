@@ -54,3 +54,7 @@
 div.input-field {
   margin-bottom: 60px !important;
 }
+
+p.notes-text {
+  font-size: 1.3em;
+}
