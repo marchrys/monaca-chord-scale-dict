@@ -6,8 +6,8 @@
 }
 
 :root {
-    --screen-bg-color: #EAF8BF;
-    --main-bg-color: #006992;
+    --screen-bg-color: #C7AC92;
+    --main-bg-color: #A44A3F;
     --danger-color: red;
     background-color: var(--screen-bg-color);
     font-family: poppins;
@@ -53,6 +53,11 @@
 
 div.input-field {
   margin-bottom: 60px !important;
+}
+
+/* Couleur de texte du label des select */
+div.input-field label {
+  color: black;
 }
 
 p.notes-text {
