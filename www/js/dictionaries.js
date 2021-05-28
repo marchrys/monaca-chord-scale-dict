@@ -15,8 +15,8 @@ const dictionaries = [
     },
     types: chordTypes,
     errorText: {
-      en: 'This chord has double accidentals, but our application desn\'t use them, for the sake of simplicity.',
-      fr: 'Cet accord a des doubles altérations, mais notre application ne les utilise pas, dans un souci de simplicité.'
+      en: '<i class="fas fa-exclamation-triangle"></i> This chord has double accidentals, but our application desn\'t use them, for the sake of simplicity.',
+      fr: '<i class="fas fa-exclamation-triangle"></i> Cet accord a des doubles altérations, mais notre application ne les utilise pas, dans un souci de simplicité.'
     }
   },
   {
@@ -33,8 +33,8 @@ const dictionaries = [
     },
     types: scaleTypes,
     errorText: {
-      en: 'This scale has double accidentals, but our application desn\'t use them, for the sake of simplicity.',
-      fr: 'Cette gamme a des doubles altérations, mais notre application ne les utilise pas, dans un souci de simplicité.'
+      en: '<i class="fas fa-exclamation-triangle"></i> This scale has double accidentals, but our application desn\'t use them, for the sake of simplicity.',
+      fr: '<i class="fas fa-exclamation-triangle"></i> Cette gamme a des doubles altérations, mais notre application ne les utilise pas, dans un souci de simplicité.'
     }
   },
 ];

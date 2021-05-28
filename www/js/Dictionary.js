@@ -58,8 +58,11 @@ class Dictionary {
 
     this.loadData();
 
+    // On sélectionne l'option correspondante pour les deux select
     this.tonicSelect.value = this.selectedRoot.id;
     this.typeSelect.value = this.selectedType.id;
+
+    this.createElementNotes();
 
     this.initSelects();
 
@@ -118,6 +121,11 @@ class Dictionary {
       this.notesStr = this.notesStr.substring(0, this.notesStr.length-1);
     }
     
+    if(hasErrors) {
+      this.notesDiv.style.color = 'red';
+    } else {
+      this.notesDiv.style.color = 'black';
+    }
     this.notesDiv.innerHTML = this.notesStr;
   }
 
