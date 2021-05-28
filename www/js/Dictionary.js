@@ -39,7 +39,12 @@ class Dictionary {
     notes.forEach(function(note) {
       if(note.isRoot) {
         let option = document.createElement('option');
-        option.innerHTML = note.name.en;
+        if(this.data.containerDiv === 'chords-dict') {
+          option.innerHTML = note.name.en;
+        } else {
+          option.innerHTML = note.name[this.lang];
+        }
+        
         option.value = note.id;
         this.tonicSelect.appendChild(option);
       }

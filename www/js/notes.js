@@ -115,7 +115,7 @@ const notes = [
      id: 22,
      name: {
        en: 'Ab',
-       fr: 'Ab',
+       fr: 'Lab',
      },
      isRoot: true
    },
