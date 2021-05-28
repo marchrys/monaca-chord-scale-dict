@@ -8,9 +8,11 @@ const dictionaries = [
     },
     containerDiv: 'chords-dict',
     tonicText: {
+      en: 'Root',
       fr: 'Fondamentale',
     },
     typeText: {
+      en: 'Chord type',
       fr: 'Type d\'accord'
     },
     types: chordTypes,
@@ -26,9 +28,11 @@ const dictionaries = [
     },
     containerDiv: 'scales-dict',
     tonicText: {
+      en: 'Root',
       fr: 'Tonique',
     },
     typeText: {
+      en: 'Scale type',
       fr: 'Type de gamme'
     },
     types: scaleTypes,
