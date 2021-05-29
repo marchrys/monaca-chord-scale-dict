@@ -63,3 +63,13 @@ div.input-field label {
 p.notes-text {
   font-size: 1.3em;
 }
+
+a.btn {
+  background-color: var(--main-bg-color) !important;
+}
+
+a.btn i {
+  width: 40px;
+  vertical-align: middle;
+  display: inline-block;
+}

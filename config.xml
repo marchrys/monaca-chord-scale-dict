@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" id="cma.chordscale_dict" version="1.1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" id="cma.chordscale_dict" version="1.1.1">
   <name>Chord and scale dictionary</name>
   <description>Made with Monaca (http://monaca.mobi)</description>
   <author/>
@@ -80,7 +80,6 @@
     <icon src="/res/android/icon/xhdpi.png" density="xhdpi"/>
     <icon src="/res/android/icon/xxhdpi.png" density="xxhdpi"/>
     <icon src="/res/android/icon/xxxhdpi.png" density="xxxhdpi"/>
-    <preference name="AndroidXEnabled" value="false"/>
     <splash src="/res/android/screen/splash-port-ldpi.9.png" density="port-ldpi"/>
     <splash src="/res/android/screen/splash-port-mdpi.9.png" density="port-mdpi"/>
     <splash src="/res/android/screen/splash-port-hdpi.9.png" density="port-hdpi"/>
@@ -88,6 +87,7 @@
     <splash src="/res/android/screen/splash-port-xxhdpi.9.png" density="port-xxhdpi"/>
     <splash src="/res/android/screen/splash-port-xxxhdpi.9.png" density="port-xxxhdpi"/>
     <splash src="/res/android/screen/splash-mdpi.9.png" density="mdpi"/>
+    <preference name="AndroidXEnabled" value="false"/>
   </platform>
   <platform name="electron">
     <icon src="/res/electron/icon/icon_electron_512.png" width="512" height="512"/>

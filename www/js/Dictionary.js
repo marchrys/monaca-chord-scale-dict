@@ -31,9 +31,14 @@ class Dictionary {
     this.containerDiv.innerHTML += 
       '<p class="notes-text">test</p>';
 
+    // On ajoute le bouton qui sert à jouer l'accord ou la gamme
+    this.containerDiv.innerHTML += 
+      '<a class="waves-effect waves-light btn play-btn"><i class="fas fa-play"></i> Jouer</a>';
+
     this.tonicSelect = this.containerDiv.querySelector('.tonic-select');
     this.typeSelect = this.containerDiv.querySelector('.type-select');
     this.notesDiv = this.containerDiv.querySelector('.notes-text');
+    this.playBtn = this.containerDiv.querySelector('.play-btn');
 
     // On ajoute les notes au select
     notes.forEach(function(note) {
@@ -119,11 +124,13 @@ class Dictionary {
     this.notesStr = '';
     if(hasErrors) {
       this.notesStr = this.data.errorText[this.lang];
+      this.playBtn.style.display = 'none';
     } else {
       this.elementNotes.forEach(function(note) {
         this.notesStr += note.name[this.lang] + ' ';
       }.bind(this));
       this.notesStr = this.notesStr.substring(0, this.notesStr.length-1);
+      this.playBtn.style.display = 'inline-block';
     }
     
     if(hasErrors) {
