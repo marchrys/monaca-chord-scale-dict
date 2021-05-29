@@ -68,6 +68,7 @@ a.btn {
   background-color: var(--main-bg-color) !important;
 }
 
+/* Ce style est nécessaire pour aligner les icônes font awesome avec le texte d'un bouton  */
 a.btn i {
   width: 40px;
   vertical-align: middle;

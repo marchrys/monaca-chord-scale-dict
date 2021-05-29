@@ -79,6 +79,9 @@ class Dictionary {
     // On ajouter des event listeners pour le change sur les deux selects
     this.tonicSelect.addEventListener('change', this.handleRootChange.bind(this));
     this.typeSelect.addEventListener('change', this.handleTypeChange.bind(this));
+
+    // On ajoute un event listener pour le click sur le bouton play
+    this.playBtn.addEventListener('click', this.playElement.bind(this));
   }
 
   initSelects() {
@@ -139,6 +142,10 @@ class Dictionary {
       this.notesDiv.style.color = 'black';
     }
     this.notesDiv.innerHTML = this.notesStr;
+  }
+
+  playElement() {
+    playSound(C4, 0);
   }
 
   saveData() {
