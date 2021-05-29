@@ -2,6 +2,8 @@
 let app = {
   lang: null,
   init: function(){
+        initSounds();
+
         const langStr = window.navigator.language;
 
         //On détecte la langue de l'appareil

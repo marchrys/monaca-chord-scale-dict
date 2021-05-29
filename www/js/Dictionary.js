@@ -146,6 +146,8 @@ class Dictionary {
 
   playElement() {
     playSound(C4, 0);
+    playSound(E4, 1);
+    playSound(G4, 2);
   }
 
   saveData() {

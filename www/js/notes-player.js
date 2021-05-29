@@ -43,21 +43,27 @@
 //       }
 // }
 
-var C4;
+var C4, E4, G4;
+const soundNotes = [C4, E4, G4];
+var soundNoteNames = ['C4', 'E4', 'G4'];
+const sounds = [];
+
+soundNoteNames.forEach(function(soundNoteName) {
+  sounds.push('sounds/Piano.mf.' + soundNoteName + '.mp3');
+});
+
 var context; 
 var bufferLoader;
 var startTime = 0.1;
 
-function initSounds(soundUrl) {
+function initSounds() {
     // Fix up prefixing
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     context = new AudioContext();
   
     bufferLoader = new BufferLoader(
       context,
-      [
-        soundUrl
-      ],
+      sounds,
       finishedLoadingSound
       );
   
@@ -65,7 +71,13 @@ function initSounds(soundUrl) {
 }
   
 function finishedLoadingSound(bufferList) {
+    // soundNotes.forEach(function(soundNote, index) {
+    //   soundNote = bufferList[index];
+    // });
+
     C4 = bufferList[0];
+    E4 = bufferList[1];
+    G4 = bufferList[2];
 }
 
 function playSound(buffer, time) {
