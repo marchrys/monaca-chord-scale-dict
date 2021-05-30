@@ -44,12 +44,11 @@
 // }
 
 var C4, E4, G4;
-const soundNotes = [C4, E4, G4];
 var soundNoteNames = ['C4', 'E4', 'G4'];
 const sounds = [];
 
 soundNoteNames.forEach(function(soundNoteName) {
-  sounds.push('sounds/Piano.mf.' + soundNoteName + '.mp3');
+  sounds.push('sounds/' + soundNoteName + '.mp3');
 });
 
 var context; 
