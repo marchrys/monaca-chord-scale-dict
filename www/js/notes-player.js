@@ -43,8 +43,12 @@
 //       }
 // }
 
-var C4, E4, G4;
-var soundNoteNames = ['C4', 'E4', 'G4'];
+var C4, Db4, D4, Eb4, E4, F4, Gb4, G4, Ab4, A4, Bb4, B4;
+var C5, Db5, D5, Eb5, E5, F5, Gb5, G5, Ab5, A5, Bb5, B5;
+var soundNoteNames = [
+  'C4', 'Db4', 'D4', 'Eb4', 'E4', 'F4', 'Gb4', 'G4', 'Ab4', 'A4', 'Bb4', 'B4',
+  'C5', 'Db5', 'D5', 'Eb5', 'E5', 'F5', 'Gb5', 'G5', 'Ab5', 'A5', 'Bb5', 'B5'
+];
 const sounds = [];
 
 soundNoteNames.forEach(function(soundNoteName) {
