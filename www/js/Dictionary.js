@@ -145,9 +145,12 @@ class Dictionary {
   }
 
   playElement() {
-    playSound(C4, 0);
-    playSound(E4, 0);
-    playSound(G4, 0);
+    const sounds = [null, C4];
+
+    let soundsToPlay = [];
+    soundsToPlay.push(sounds[this.elementNotes[0].id]);
+
+    playSound(soundsToPlay[0], 0);
   }
 
   saveData() {

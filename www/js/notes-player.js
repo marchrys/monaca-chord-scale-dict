@@ -79,8 +79,8 @@ function finishedLoadingSound(bufferList) {
     // });
 
     C4 = bufferList[0];
-    E4 = bufferList[1];
-    G4 = bufferList[2];
+    E4 = bufferList[4];
+    G4 = bufferList[7];
 }
 
 function playSound(buffer, time) {

@@ -6,7 +6,7 @@ const notes = [
        fr: 'Do',
      },
      isRoot: true,
-     sound: C4
+     sound: 'C4'
    },
    {
      id: 3,
