@@ -79,8 +79,30 @@ function finishedLoadingSound(bufferList) {
     // });
 
     C4 = bufferList[0];
+    Db4 = bufferList[1];
+    D4 = bufferList[2];
+    Eb4 = bufferList[3];
     E4 = bufferList[4];
+    F4 = bufferList[5];
+    Gb4 = bufferList[6];
     G4 = bufferList[7];
+    Ab4 = bufferList[8];
+    A4 = bufferList[9];
+    Bb4 = bufferList[10];
+    B4 = bufferList[11];
+
+    C5 = bufferList[12];
+    Db5 = bufferList[13];
+    D5 = bufferList[14];
+    Eb5 = bufferList[15];
+    E5 = bufferList[16];
+    F5 = bufferList[17];
+    Gb5 = bufferList[18];
+    G5 = bufferList[19];
+    Ab5 = bufferList[20];
+    A5 = bufferList[21];
+    Bb5 = bufferList[22];
+    B5 = bufferList[23];
 }
 
 function playSound(buffer, time) {

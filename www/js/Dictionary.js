@@ -145,12 +145,21 @@ class Dictionary {
   }
 
   playElement() {
-    const sounds = [null, C4];
-
+    const sounds = [
+      null, C4, null, Db4, Db4, null, D4, null, Eb4, Eb4, null, E4, E4, F4, F4, null, 
+      Gb4, Gb4, null, G4, null, Ab4, Ab4, null, A4, null, Bb4, Bb4, null, B4, B4, C5,
+      C5, null, Db5, Db5, null, D5, null, Eb5, Eb5, null, E5, E5, F5, F5, null,
+      Gb5, Gb5, null, G5, null, Ab5, Ab5, null, A5, null, Bb5, Bb5, null, B5, B5
+    ];
+    
     let soundsToPlay = [];
-    soundsToPlay.push(sounds[this.elementNotes[0].id]);
-
-    playSound(soundsToPlay[0], 0);
+    this.elementNotes.forEach(function(note) {
+      soundsToPlay.push(sounds[note.id]);
+    });
+  
+    soundsToPlay.forEach(function(sound) {
+      playSound(sound, 0);
+    });
   }
 
   saveData() {

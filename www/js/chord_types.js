@@ -85,7 +85,7 @@ const chordTypes = [
       en: 'sus2',
       fr: 'sus2'
     },
-    intervals: [6, 18]
+    intervals: [5, 18]
   },
   {
     id: 12,
