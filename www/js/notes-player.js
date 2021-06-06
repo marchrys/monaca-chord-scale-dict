@@ -52,7 +52,7 @@ var soundNoteNames = [
 const sounds = [];
 
 soundNoteNames.forEach(function(soundNoteName) {
-  sounds.push('sounds/' + soundNoteName + '.mp3');
+  sounds.push('sounds/Piano.mf.' + soundNoteName + '.mp3');
 });
 
 var context; 

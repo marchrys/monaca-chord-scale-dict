@@ -157,8 +157,12 @@ class Dictionary {
       soundsToPlay.push(sounds[note.id]);
     });
   
-    soundsToPlay.forEach(function(sound) {
-      playSound(sound, 0);
+    soundsToPlay.forEach(function(sound, index) {
+      if(this.containerDiv === 'chords-dict') {
+        playSound(sound, 0);
+      } else {
+        playSound(sound, index);
+      }
     });
   }
 
