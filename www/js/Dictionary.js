@@ -76,6 +76,8 @@ class Dictionary {
 
     this.initSelects();
 
+    this.checkSoundsLoad();
+
     // On ajouter des event listeners pour le change sur les deux selects
     this.tonicSelect.addEventListener('change', this.handleRootChange.bind(this));
     this.typeSelect.addEventListener('change', this.handleTypeChange.bind(this));
@@ -155,15 +157,15 @@ class Dictionary {
     let soundsToPlay = [];
     this.elementNotes.forEach(function(note) {
       soundsToPlay.push(sounds[note.id]);
-    });
+    }.bind(this));
   
     soundsToPlay.forEach(function(sound, index) {
-      if(this.containerDiv === 'chords-dict') {
+      if(this.data.containerDiv == 'chords-dict') {
         playSound(sound, 0);
       } else {
         playSound(sound, index);
       }
-    });
+    }.bind(this));
   }
 
   saveData() {
@@ -180,5 +182,16 @@ class Dictionary {
       this.selectedType = JSON.parse(localStorage.getItem(this.typeKey));
     }
   }
+
+  checkSoundsLoad() {
+    const soundsLoad = setInterval(function() {
+      console.log(allSoundsLoaded);
+      if(allSoundsLoaded) {
+        clearInterval(soundsLoad);
+        return;
+      }
+    }, 1000);
+  }
+ 
 }
 
