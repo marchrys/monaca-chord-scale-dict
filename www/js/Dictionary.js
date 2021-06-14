@@ -14,76 +14,17 @@ class Dictionary {
     this.rootKey = this.data.containerDiv + '-root';
     this.typeKey = this.data.containerDiv + '-type';
     
-    // On ajoute le select de choix de fondamentale ou tonique
+    // this.createGui();
     this.containerDiv.innerHTML += 
-        '<div class="input-field col s12">' +
-          '<select class="tonic-select"></select>' +
-          '<label>' + this.data.tonicText[this.lang] + '</label>' +
+        '<div>Please wait while loading sounds...</div>' +
+        '<div class="progress">' +
+          '<div class="indeterminate"></div>' +
         '</div>';
-    // On ajoute le select de choix de type
-    this.containerDiv.innerHTML += 
-        '<div class="input-field col s12">' +
-          '<select class="type-select"></select>' +
-          '<label>' + this.data.typeText[this.lang] + '</label>' +
-        '</div>';
-    
-    // On ajoute la p qui affichera les notes
-    this.containerDiv.innerHTML += 
-      '<p class="notes-text">test</p>';
-
-    // On ajoute le bouton qui sert à jouer l'accord ou la gamme
-    this.containerDiv.innerHTML += 
-      '<a class="waves-effect waves-light btn play-btn"><i class="fas fa-play"></i> Jouer</a>';
-
-    this.tonicSelect = this.containerDiv.querySelector('.tonic-select');
-    this.typeSelect = this.containerDiv.querySelector('.type-select');
-    this.notesDiv = this.containerDiv.querySelector('.notes-text');
-    this.playBtn = this.containerDiv.querySelector('.play-btn');
-
-    // On ajoute les notes au select
-    notes.forEach(function(note) {
-      if(note.isRoot) {
-        let option = document.createElement('option');
-        if(this.data.containerDiv === 'chords-dict') {
-          option.innerHTML = note.name.en;
-        } else {
-          option.innerHTML = note.name[this.lang];
-        }
-        
-        option.value = note.id;
-        this.tonicSelect.appendChild(option);
-      }
-    }.bind(this));
-
-    // On classe les types par ordre alphabétique du nom de type dans la langue de l'appareil
-    this.data.types.sort((a,b) => (a.name[this.lang] > b.name[this.lang]) ? 1 : ((b.name[this.lang] > a.name[this.lang]) ? -1 : 0));
-
-    // On ajouter les types au select de type
-    this.data.types.forEach(function(type) {
-        let option = document.createElement('option');
-        option.innerHTML = type.name[this.lang];
-        option.value = type.id;
-        this.typeSelect.appendChild(option);
-    }.bind(this));
 
     this.loadData();
-
-    // On sélectionne l'option correspondante pour les deux select
-    this.tonicSelect.value = this.selectedRoot.id;
-    this.typeSelect.value = this.selectedType.id;
-
     this.createElementNotes();
-
     this.initSelects();
-
     this.checkSoundsLoad();
-
-    // On ajouter des event listeners pour le change sur les deux selects
-    this.tonicSelect.addEventListener('change', this.handleRootChange.bind(this));
-    this.typeSelect.addEventListener('change', this.handleTypeChange.bind(this));
-
-    // On ajoute un event listener pour le click sur le bouton play
-    this.playBtn.addEventListener('click', this.playElement.bind(this));
   }
 
   initSelects() {
@@ -135,15 +76,18 @@ class Dictionary {
         this.notesStr += note.name[this.lang] + ' ';
       }.bind(this));
       this.notesStr = this.notesStr.substring(0, this.notesStr.length-1);
-      this.playBtn.style.display = 'inline-block';
+      if(this.playBtn !== undefined) {
+        this.playBtn.style.display = 'inline-block';
+      }
     }
-    
-    if(hasErrors) {
-      this.notesDiv.style.color = 'red';
-    } else {
-      this.notesDiv.style.color = 'black';
+    if(this.notesDiv !== undefined) {
+      if(hasErrors) {
+        this.notesDiv.style.color = 'red';
+      } else {
+        this.notesDiv.style.color = 'black';
+      }
+      this.notesDiv.innerHTML = this.notesStr;
     }
-    this.notesDiv.innerHTML = this.notesStr;
   }
 
   playElement() {
@@ -185,12 +129,76 @@ class Dictionary {
 
   checkSoundsLoad() {
     const soundsLoad = setInterval(function() {
-      console.log(allSoundsLoaded);
       if(allSoundsLoaded) {
         clearInterval(soundsLoad);
         return;
       }
     }, 1000);
+  }
+
+  createGui() {
+     // On ajoute le select de choix de fondamentale ou tonique
+    this.containerDiv.innerHTML += 
+        '<div class="input-field col s12">' +
+          '<select class="tonic-select"></select>' +
+          '<label>' + this.data.tonicText[this.lang] + '</label>' +
+        '</div>';
+    // On ajoute le select de choix de type
+    this.containerDiv.innerHTML += 
+        '<div class="input-field col s12">' +
+          '<select class="type-select"></select>' +
+          '<label>' + this.data.typeText[this.lang] + '</label>' +
+        '</div>';
+    
+    // On ajoute la p qui affichera les notes
+    this.containerDiv.innerHTML += 
+      '<p class="notes-text">test</p>';
+
+    // On ajoute le bouton qui sert à jouer l'accord ou la gamme
+    this.containerDiv.innerHTML += 
+      '<a class="waves-effect waves-light btn play-btn"><i class="fas fa-play"></i> Jouer</a>';
+
+    this.tonicSelect = this.containerDiv.querySelector('.tonic-select');
+    this.typeSelect = this.containerDiv.querySelector('.type-select');
+    this.notesDiv = this.containerDiv.querySelector('.notes-text');
+    this.playBtn = this.containerDiv.querySelector('.play-btn');
+
+    // On ajoute les notes au select
+    notes.forEach(function(note) {
+      if(note.isRoot) {
+        let option = document.createElement('option');
+        if(this.data.containerDiv === 'chords-dict') {
+          option.innerHTML = note.name.en;
+        } else {
+          option.innerHTML = note.name[this.lang];
+        }
+        
+        option.value = note.id;
+        this.tonicSelect.appendChild(option);
+      }
+    }.bind(this));
+
+    // On classe les types par ordre alphabétique du nom de type dans la langue de l'appareil
+    this.data.types.sort((a,b) => (a.name[this.lang] > b.name[this.lang]) ? 1 : ((b.name[this.lang] > a.name[this.lang]) ? -1 : 0));
+
+    // On ajouter les types au select de type
+    this.data.types.forEach(function(type) {
+        let option = document.createElement('option');
+        option.innerHTML = type.name[this.lang];
+        option.value = type.id;
+        this.typeSelect.appendChild(option);
+    }.bind(this));
+
+    this.tonicSelect.addEventListener('change', this.handleRootChange.bind(this));
+    this.typeSelect.addEventListener('change', this.handleTypeChange.bind(this));
+
+    this.playBtn.addEventListener('click', this.playElement.bind(this));
+  }
+
+  setSelectedOptions() {
+    // On sélectionne l'option correspondante pour les deux select
+    this.tonicSelect.value = this.selectedRoot.id;
+    this.typeSelect.value = this.selectedType.id;
   }
  
 }
