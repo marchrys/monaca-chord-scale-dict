@@ -22,8 +22,6 @@ class Dictionary {
         '</div>';
 
     this.loadData();
-    this.createElementNotes();
-    this.initSelects();
     this.checkSoundsLoad();
   }
 
@@ -130,13 +128,17 @@ class Dictionary {
   checkSoundsLoad() {
     const soundsLoad = setInterval(function() {
       if(allSoundsLoaded) {
+        this.createGui();
+        this.createElementNotes();
+        this.initSelects();
         clearInterval(soundsLoad);
         return;
       }
-    }, 1000);
+    }.bind(this), 1000);
   }
 
   createGui() {
+    this.containerDiv.innerHTML = '';
      // On ajoute le select de choix de fondamentale ou tonique
     this.containerDiv.innerHTML += 
         '<div class="input-field col s12">' +
