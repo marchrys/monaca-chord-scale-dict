@@ -16,7 +16,7 @@ class Dictionary {
     
     // this.createGui();
     this.containerDiv.innerHTML += 
-        '<div>Please wait while loading sounds...</div>' +
+        '<div>' + texts.preloader[this.lang] + '</div>' +
         '<div class="progress">' +
           '<div class="indeterminate"></div>' +
         '</div>';
@@ -130,6 +130,7 @@ class Dictionary {
       if(allSoundsLoaded) {
         this.createGui();
         this.createElementNotes();
+        this.setSelectedOptions();
         this.initSelects();
         clearInterval(soundsLoad);
         return;
