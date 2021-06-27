@@ -77,7 +77,7 @@ const scaleTypes = [
       en: 'locrian mode',
       fr: 'mode de si (locrien)'
     },
-    intervals: [3, 8, 13, 16, 23, 26]
+    intervals: [3, 8, 13, 16, 21, 26]
   },
   {
     id: 11,

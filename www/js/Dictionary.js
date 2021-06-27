@@ -105,7 +105,7 @@ class Dictionary {
       if(this.data.containerDiv == 'chords-dict') {
         playSound(sound, 0);
       } else {
-        playSound(sound, index);
+        playSound(sound, index * 0.75);
       }
     }.bind(this));
   }
